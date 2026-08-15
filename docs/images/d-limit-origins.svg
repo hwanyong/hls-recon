@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 444" role="img"
+     aria-label="한계의 여섯 출처를 이 저장소의 경계선으로 나눈 그림. 위쪽은 규격상 불가능, 대상 의존, 근거 부재 셋으로 규격이나 대상 사이트나 송출자의 입력이 바뀌어야 사라진다. 아래쪽은 설계상 선택, 임계값의 오탐, 검사기의 미탐 셋으로 이 저장소의 코드를 고쳐 좁힐 수 있다.">
+  <style>
+    .bg    { fill:#ffffff; stroke:#d8dee6 }
+    .box   { fill:#f6f8fa; stroke:#d8dee6 }
+    .outer { fill:#fff8c5; stroke:#d4a72c }
+    .inner { fill:#ddf4ff; stroke:#54aeff }
+    .ink   { fill:#1f2328 }
+    .muted { fill:#656d76 }
+    .acc   { fill:#0969da }
+    .warn  { fill:#9a6700 }
+    .rule  { stroke:#8c959f }
+    @media (prefers-color-scheme: dark) {
+      .bg    { fill:#0d1117; stroke:#30363d }
+      .box   { fill:#161b22; stroke:#30363d }
+      .outer { fill:#3a2d0b; stroke:#d29922 }
+      .inner { fill:#121d2f; stroke:#316dca }
+      .ink   { fill:#e6edf3 }
+      .muted { fill:#8b949e }
+      .acc   { fill:#4493f8 }
+      .warn  { fill:#d29922 }
+      .rule  { stroke:#6e7681 }
+    }
+    text { font-family:-apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif }
+    .m   { font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace }
+  </style>
+
+  <rect class="bg" x="20" y="14" width="840" height="416" rx="10" stroke-width="1"/>
+  <text class="ink" x="44" y="44" font-size="15" font-weight="600">한계의 여섯 출처 — 무엇이 바뀌어야 사라지는가</text>
+
+  <text class="warn" x="44" y="72" font-size="12" font-weight="600">이 저장소의 코드로는 없앨 수 없다</text>
+
+  <rect class="outer" x="44" y="82" width="256" height="98" rx="8" stroke-width="1.2"/>
+  <text class="ink" x="60" y="108" font-size="13" font-weight="600">① 규격상 불가능</text>
+  <text class="muted m" x="60" y="130" font-size="10.5">SAMPLE-AES · CLOSED-CAPTIONS</text>
+  <text x="60" y="156" font-size="12" xml:space="preserve"><tspan class="muted">없애려면 </tspan><tspan class="acc" font-weight="600">규격이 바뀌어야</tspan></text>
+
+  <rect class="outer" x="312" y="82" width="256" height="98" rx="8" stroke-width="1.2"/>
+  <text class="ink" x="328" y="108" font-size="13" font-weight="600">③ 대상 의존</text>
+  <text class="muted m" x="328" y="130" font-size="10.5">series.py · SIDECAR_PATHS</text>
+  <text x="328" y="156" font-size="12" xml:space="preserve"><tspan class="muted">없애려면 </tspan><tspan class="acc" font-weight="600">대상마다 다시 실측</tspan></text>
+
+  <rect class="outer" x="580" y="82" width="256" height="98" rx="8" stroke-width="1.2"/>
+  <text class="ink" x="596" y="108" font-size="13" font-weight="600">④ 근거 부재</text>
+  <text class="muted" x="596" y="130" font-size="10.5">자막 이름 · 자막 정렬</text>
+  <text x="596" y="156" font-size="12" xml:space="preserve"><tspan class="muted">없애려면 </tspan><tspan class="acc" font-weight="600">송출이 실어 보내야</tspan></text>
+
+  <text class="muted" x="440" y="206" font-size="11.5" text-anchor="middle">이 저장소의 경계</text>
+  <path d="M44,218 L836,218" class="rule" fill="none" stroke-width="1.2" stroke-dasharray="6 5"/>
+
+  <text class="acc" x="44" y="248" font-size="12" font-weight="600">이 저장소의 코드로 좁힐 수 있다 — 다만 대가가 따른다</text>
+
+  <rect class="inner" x="44" y="258" width="256" height="98" rx="8" stroke-width="1.2"/>
+  <text class="ink" x="60" y="284" font-size="13" font-weight="600">② 설계상 선택</text>
+  <text class="muted" x="60" y="306" font-size="10.5">LIVE · 중첩 마스터 · 재고 조사</text>
+  <text x="60" y="332" font-size="12" xml:space="preserve"><tspan class="muted">없애려면 </tspan><tspan class="acc" font-weight="600">범위를 넓히면 된다</tspan></text>
+
+  <rect class="inner" x="312" y="258" width="256" height="98" rx="8" stroke-width="1.2"/>
+  <text class="ink" x="328" y="284" font-size="13" font-weight="600">⑤ 임계값의 오탐</text>
+  <text class="muted" x="328" y="306" font-size="10.5">갭 스캔 VFR · 화수 표기</text>
+  <text x="328" y="332" font-size="12" xml:space="preserve"><tspan class="muted">없애려면 </tspan><tspan class="acc" font-weight="600">지표를 바꿔야 한다</tspan></text>
+
+  <rect class="inner" x="580" y="258" width="256" height="98" rx="8" stroke-width="1.2"/>
+  <text class="ink" x="596" y="284" font-size="13" font-weight="600">⑥ 검사기의 미탐</text>
+  <text class="muted" x="596" y="306" font-size="10.5">CC 2/16 · 래핑 · 편집 목록</text>
+  <text x="596" y="332" font-size="12" xml:space="preserve"><tspan class="muted">없애려면 </tspan><tspan class="acc" font-weight="600">검사를 더 얹으면 된다</tspan></text>
+
+  <text class="warn" x="44" y="386" font-size="12.5" font-weight="600">여섯 축 중 셋은 이 저장소 밖에서 결정된다.</text>
+  <text class="muted" x="44" y="408" font-size="12" >고쳐 없앨 수 있는 한계와 없앨 수 없는 한계를 가르는 것이 이 부록의 첫 일이다.</text>
+</svg>

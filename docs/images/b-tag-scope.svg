@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 396" role="img"
+     aria-label="플레이리스트 태그의 적용 범위 세 가지. EXT-X-TARGETDURATION 같은 태그는 문서 전역에 즉시 반영되고, EXT-X-KEY 는 다음 같은 태그가 나올 때까지 이후 세그먼트 전부에 적용되며, EXTINF 와 EXT-X-DISCONTINUITY 는 대기 상태로 쌓였다가 바로 다음 URI 줄에서 소비되고 초기화된다.">
+  <style>
+    .bg    { fill:#ffffff; stroke:#d8dee6 }
+    .ink   { fill:#1f2328 }
+    .muted { fill:#656d76 }
+    .acc   { fill:#0969da }
+    .rule  { stroke:#d8dee6 }
+    .barA  { fill:#ddf4ff; stroke:#54aeff }
+    .barB  { fill:#fff1c2; stroke:#d4a72c }
+    .barC  { fill:#dafbe1; stroke:#4ac26b }
+    .warn  { fill:#9a6700 }
+    .good  { fill:#1a7f37 }
+    @media (prefers-color-scheme: dark) {
+      .bg    { fill:#0d1117; stroke:#30363d }
+      .ink   { fill:#e6edf3 }
+      .muted { fill:#8b949e }
+      .acc   { fill:#4493f8 }
+      .rule  { stroke:#30363d }
+      .barA  { fill:#123a63; stroke:#316dca }
+      .barB  { fill:#4d3c12; stroke:#9e6a03 }
+      .barC  { fill:#14351f; stroke:#2f6f43 }
+      .warn  { fill:#d29922 }
+      .good  { fill:#3fb950 }
+    }
+    text { font-family:-apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif }
+    .m   { font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace }
+  </style>
+
+  <rect class="bg" x="20" y="16" width="840" height="364" rx="10" stroke-width="1"/>
+  <text class="ink" x="44" y="46" font-size="15" font-weight="600">같은 파일 안에서 태그의 적용 범위는 셋으로 갈린다</text>
+
+  <text class="muted" x="44" y="70" font-size="12">미디어 플레이리스트 발췌</text>
+  <text class="acc" x="470" y="70" font-size="12" font-weight="600" text-anchor="middle">문서 전역</text>
+  <text class="warn" x="600" y="70" font-size="12" font-weight="600" text-anchor="middle">이후 전부</text>
+  <text class="good" x="730" y="70" font-size="12" font-weight="600" text-anchor="middle">다음 하나</text>
+
+  <line class="rule" x1="44" y1="78" x2="836" y2="78" stroke-width="1"/>
+
+  <rect class="barA" x="424" y="86" width="92" height="240" rx="6" stroke-width="1"/>
+  <rect class="barB" x="554" y="138" width="92" height="188" rx="6" stroke-width="1"/>
+  <rect class="barC" x="684" y="164" width="92" height="52" rx="6" stroke-width="1"/>
+  <rect class="barC" x="684" y="216" width="92" height="78" rx="6" stroke-width="1"/>
+
+  <text class="muted m" x="44" y="104" font-size="12.5">#EXTM3U</text>
+  <text class="muted m" x="44" y="130" font-size="12.5">#EXT-X-TARGETDURATION:6</text>
+  <text class="muted m" x="44" y="156" font-size="12.5">#EXT-X-KEY:METHOD=AES-128,URI="k1"</text>
+  <text class="muted m" x="44" y="182" font-size="12.5">#EXTINF:6.0,</text>
+  <text class="acc m" x="44" y="208" font-size="12.5" font-weight="600">seg000.ts</text>
+  <text class="muted m" x="44" y="234" font-size="12.5">#EXT-X-DISCONTINUITY</text>
+  <text class="muted m" x="44" y="260" font-size="12.5">#EXTINF:6.0,</text>
+  <text class="acc m" x="44" y="286" font-size="12.5" font-weight="600">seg001.ts</text>
+  <text class="muted m" x="44" y="312" font-size="12.5">#EXT-X-ENDLIST</text>
+
+  <text class="ink" x="470" y="348" font-size="11.5" text-anchor="middle">Playlist 필드</text>
+  <text class="ink" x="600" y="348" font-size="11.5" text-anchor="middle">cur_key</text>
+  <text class="ink" x="730" y="348" font-size="11.5" text-anchor="middle">cur_inf · pending_disc</text>
+
+  <text class="muted" x="44" y="368" font-size="12.5" xml:space="preserve"><tspan>파란 줄은 태그가 아닌 URI 줄이다. </tspan><tspan class="ink" font-weight="600">이 줄이 대기 상태를 소비해 세그먼트 하나를 만들고 초기화한다</tspan><tspan> — </tspan><tspan class="m">playlist.py:227-254</tspan><tspan>.</tspan></text>
+</svg>

@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hls-recon"
+version = "1.0.0"
+description = "HLS 송출 데이터를 로컬 영상 파일로 재조립하고, 송출이 온전했는지 검증한다"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "UHD" }]
+keywords = ["hls", "m3u8", "mpeg-ts", "ffmpeg", "integrity", "verification"]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Multimedia :: Video",
+]
+
+# AES-128 세그먼트 복호화에만 쓰이지만(decrypt.py) 없으면 그 지점에서 그대로
+# ModuleNotFoundError 가 난다. 설치본이 반쪽으로 동작하지 않도록 필수로 둔다.
+dependencies = ["cryptography"]
+
+[project.urls]
+Homepage = "https://github.com/hwanyong/hls-recon"
+Issues = "https://github.com/hwanyong/hls-recon/issues"
+
+[project.scripts]
+hls-recon = "hlsrecon.cli:main"
+
+# tests/ 가 최상위에 있어 flat-layout 자동 탐색이 모호해진다 — 명시한다.
+[tool.setuptools]
+packages = ["hlsrecon"]

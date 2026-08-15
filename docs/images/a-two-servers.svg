@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" role="img"
+     aria-label="로컬 실습에 서버가 둘인 이유. python3 -m http.server 8899 는 어떤 요청에도 압축하지 않아 응답에 Content-Encoding 이 없고, 그래서 제6장의 압축 해제 경로가 재현되지 않는다. gzip_server.py 8900 은 m3u8 과 vtt 를 gzip 으로 강제 압축해 Content-Encoding: gzip 을 붙이고, 그 응답에서만 압축 해제 경로가 실행된다.">
+  <style>
+    .bg    { fill:#ffffff; stroke:#d8dee6 }
+    .box   { fill:#f6f8fa; stroke:#d8dee6 }
+    .ink   { fill:#1f2328 }
+    .muted { fill:#656d76 }
+    .acc   { fill:#0969da }
+    .good  { fill:#1a7f37 }
+    .mk    { fill:#8c959f }
+    .arw   { stroke:#8c959f }
+    .pillN { fill:#eef1f4; stroke:#d8dee6 }
+    .pillA { fill:#ddf4ff; stroke:#54aeff }
+    @media (prefers-color-scheme: dark) {
+      .bg    { fill:#0d1117; stroke:#30363d }
+      .box   { fill:#161b22; stroke:#30363d }
+      .ink   { fill:#e6edf3 }
+      .muted { fill:#8b949e }
+      .acc   { fill:#4493f8 }
+      .good  { fill:#3fb950 }
+      .mk    { fill:#6e7681 }
+      .arw   { stroke:#6e7681 }
+      .pillN { fill:#21262d; stroke:#30363d }
+      .pillA { fill:#0c2d4d; stroke:#1f6feb }
+    }
+    text { font-family:-apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif }
+    .m   { font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace }
+  </style>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="mk"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="20" y="16" width="840" height="268" rx="10" stroke-width="1"/>
+  <text class="ink" x="44" y="46" font-size="15" font-weight="600">왜 로컬 서버가 둘인가 — 압축하는 서버와 하지 않는 서버</text>
+
+  <!-- Row A -->
+  <rect class="box" x="44" y="80" width="250" height="60" rx="6" stroke-width="1"/>
+  <text class="acc m" x="169" y="106" font-size="12.5" text-anchor="middle" font-weight="600">http.server 8899</text>
+  <text class="muted" x="169" y="126" font-size="11.5" text-anchor="middle">표준 라이브러리 · 압축 없음</text>
+
+  <line x1="294" y1="110" x2="330" y2="110" class="arw" stroke-width="1.2" marker-end="url(#ar)"/>
+  <text class="muted m" x="312" y="102" font-size="10.5" text-anchor="middle">GET</text>
+
+  <rect class="box" x="330" y="80" width="252" height="60" rx="6" stroke-width="1"/>
+  <text class="ink" x="456" y="106" font-size="12.5" text-anchor="middle">응답 본문 = 원본 바이트</text>
+  <text class="muted" x="456" y="126" font-size="11.5" text-anchor="middle">Content-Encoding 헤더 없음</text>
+
+  <line x1="582" y1="110" x2="618" y2="110" class="arw" stroke-width="1.2" marker-end="url(#ar)"/>
+
+  <rect class="pillN" x="618" y="82" width="218" height="56" rx="8" stroke-width="1"/>
+  <text class="muted" x="727" y="106" font-size="12" text-anchor="middle">제6장 압축 해제 경로</text>
+  <text class="muted" x="727" y="125" font-size="12" text-anchor="middle" font-weight="600">재현되지 않는다</text>
+
+  <!-- Row B -->
+  <rect class="box" x="44" y="172" width="250" height="60" rx="6" stroke-width="1"/>
+  <text class="acc m" x="169" y="198" font-size="12.5" text-anchor="middle" font-weight="600">gzip_server.py 8900</text>
+  <text class="muted" x="169" y="218" font-size="11.5" text-anchor="middle">.m3u8 · .vtt 를 gzip 강제</text>
+
+  <line x1="294" y1="202" x2="330" y2="202" class="arw" stroke-width="1.2" marker-end="url(#ar)"/>
+  <text class="muted m" x="312" y="194" font-size="10.5" text-anchor="middle">GET</text>
+
+  <rect class="box" x="330" y="172" width="252" height="60" rx="6" stroke-width="1"/>
+  <text x="456" y="198" font-size="12.5" text-anchor="middle" xml:space="preserve"><tspan class="ink">응답 </tspan><tspan class="acc m">Content-Encoding: gzip</tspan></text>
+  <text class="muted" x="456" y="218" font-size="11.5" text-anchor="middle">클라이언트 요청과 무관하게</text>
+
+  <line x1="582" y1="202" x2="618" y2="202" class="arw" stroke-width="1.2" marker-end="url(#ar)"/>
+
+  <rect class="pillA" x="618" y="174" width="218" height="56" rx="8" stroke-width="1"/>
+  <text class="acc" x="727" y="198" font-size="12" text-anchor="middle">압축 해제 경로가</text>
+  <text class="good" x="727" y="217" font-size="12" text-anchor="middle" font-weight="600">여기서만 실행된다</text>
+
+  <text x="44" y="266" font-size="12.5" xml:space="preserve"><tspan class="ink" font-weight="600">http.server 는 어떤 Accept-Encoding 에도 압축하지 않는다</tspan><tspan class="muted"> — 그래서 압축 협상 실습에는 별도 서버가 필요하다.</tspan></text>
+</svg>

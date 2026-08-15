@@ -258,7 +258,7 @@ EOF
 가리킨다 — 이 2계층 간접 참조가 제3장의 주제다. 화질 선택 실습은 `--height` 로 한다.
 
 ```bash
-./hls-recon "http://127.0.0.1:8899/multi/master.m3u8" -o multi.mkv --height 180
+./hls-recon "http://127.0.0.1:8899/multi/master.m3u8" -o out/multi.mkv --height 180
 ```
 
 ### A.3.5 자막 트랙
@@ -415,7 +415,7 @@ python3 tests/gzip_server.py 8900 "$PWD" &
 
 ```bash
 # 도구는 압축을 스스로 풀어 정상 처리한다 (--no-decode-check 는 실습 편의)
-./hls-recon "http://127.0.0.1:8900/plain/index.m3u8" -o gzip.mp4 --no-decode-check
+./hls-recon "http://127.0.0.1:8900/plain/index.m3u8" -o out/gzip.mp4 --no-decode-check
 
 # 서버가 정말로 압축해 보내는지 직접 확인
 curl -s -H 'Accept-Encoding: identity' -o /dev/null -D - \
@@ -592,10 +592,10 @@ done
 ./hls-recon "http://127.0.0.1:8899/multi/master.m3u8" --probe-only
 
 # 재조립 + 전체 검증
-./hls-recon "http://127.0.0.1:8899/plain/index.m3u8" -o plain.mp4 --report plain.json
+./hls-recon "http://127.0.0.1:8899/plain/index.m3u8" -o out/plain.mp4 --report out/plain.json
 
 # AES-128 복호화
-./hls-recon "http://127.0.0.1:8899/enc/index.m3u8" -o enc.mp4
+./hls-recon "http://127.0.0.1:8899/enc/index.m3u8" -o out/enc.mp4
 ```
 
 `run.sh` 는 정상 스트림에 대해 "종료 코드 0 이고 리포트에 `✗` 가 없으면 통과"로 본다.
@@ -608,7 +608,7 @@ done
 결함 스트림은 반대다 — **종료 코드 2** 로 실패해야 하고, 리포트가 결함을 지목해야 한다.
 
 ```bash
-./hls-recon "http://127.0.0.1:8899/damaged/index.m3u8" -o damaged.mp4 --report damaged.json
+./hls-recon "http://127.0.0.1:8899/damaged/index.m3u8" -o out/damaged.mp4 --report out/damaged.json
 echo "exit: $?"     # 2 여야 한다
 ```
 
